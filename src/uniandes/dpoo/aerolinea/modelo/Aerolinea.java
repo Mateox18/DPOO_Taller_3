@@ -318,8 +318,8 @@ public class Aerolinea
     {
         // TODO Implementar el método
     	
-    	Integer[] tempBaja = {1,2,3,4,5};
-    	Integer[] tempAlta = {9,10,11};
+    	Integer[] tempBaja = {1,2,3,4,5, 9, 10, 11};
+    	
     	int temp = Integer.parseInt(fecha.substring(5, 7));
     	CalculadoraTarifas calculadora = null;
     	Cliente cliente = clientes.get(identificadorCliente);
@@ -328,10 +328,8 @@ public class Aerolinea
     	
     	if (Arrays.asList(tempBaja).contains(temp)) {
     	    calculadora = new CalculadoraTarifasTemporadaBaja();
-    	} else if (Arrays.asList(tempAlta).contains(temp)) {
-    	    calculadora = new CalculadoraTarifasTemporadaAlta();
     	} else {
-    	    throw new Exception("Mes no válido");
+    	    calculadora = new CalculadoraTarifasTemporadaAlta();
     	}
     	
     	for (Vuelo vuelo: this.vuelos) {
